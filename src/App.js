@@ -14,8 +14,6 @@ const deadline = 'December, 31, 2022';
 function Layout() {
   return (
     <div>
-      {/* A "layout route" is a good place to put markup you want to
-          share across all the pages on your site, like navigation. */}
       <nav>
         <ul>
           <li>
@@ -34,6 +32,13 @@ function Layout() {
       </nav>
       <hr />
       <Outlet />
+      <pre>
+        <b>
+          Note: On this example download with worker isn't working through
+          seperate file because of the limited setup. But it will work if the
+          worker code being placed in worker file.
+        </b>
+      </pre>
     </div>
   );
 }
@@ -42,7 +47,7 @@ function Home() {
   return (
     <div>
       <h2>Home</h2>
-      {/* <Timer /> */}
+      <Timer />
       <DownloadComponent />
     </div>
   );
@@ -154,10 +159,6 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="dashboard" element={<Dashboard />} />
-
-          {/* Using path="*"" means "match anything", so this route
-                acts like a catch-all for URLs that we don't have explicit
-                routes for. */}
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
